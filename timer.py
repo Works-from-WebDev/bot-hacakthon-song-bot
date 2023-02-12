@@ -38,12 +38,14 @@ def start(update: Update, context: CallbackContext):
 
 def callback_minute(context: telegram.ext.CallbackContext):
     d = context.job.context
-
-    context.bot.send_message(chat_id=d['chat_id'], text=x[2][d['counter']])
-    j.run_once(callback_minute, 2, context={
-        'chat_id': d['chat_id'],
-        'counter': d['counter'] + 1,
-    })
+    if d['counter'] < len(x[2]):
+        context.bot.send_message(chat_id=d['chat_id'], text="You're lost")
+    else:
+        context.bot.send_message(chat_id=d['chat_id'], text=x[2][d['counter']])
+        j.run_once(callback_minute, 2, context={
+            'chat_id': d['chat_id'],
+            'counter': d['counter'] + 1,
+        })
 
 
 
