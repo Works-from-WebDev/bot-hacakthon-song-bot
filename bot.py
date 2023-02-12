@@ -8,6 +8,7 @@ from telegram.ext import (
 )
 
 import bot_settings
+import requests
 
 WELCOME_TEXT = "Welcome to our bot!"
 
