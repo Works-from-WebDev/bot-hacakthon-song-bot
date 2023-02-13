@@ -158,7 +158,7 @@ def callback_minute(context: telegram.ext.CallbackContext):
         context.bot.send_message(chat_id=song.chat_id, text="sorry you lost")
         song.running = False
         return
-    context.bot.send_message(chat_id=song.chat_id, text=song.lyrics[song.counter])
+    context.bot.send_message(chat_id=song.chat_id, text=f"🎵 {song.lyrics[song.counter]}")
     song.counter += 1
     j.run_once(callback_minute, interval, context=song)
 
