@@ -17,7 +17,6 @@ singers = {
         "Perfect",
         "Castle on the Hill",
         "Photograph",
-        "I Don't Care (with Justin Bieber)",
         "Beautiful People (with Khalid)",
         "South of the Border (feat. Camila Cabello & Cardi B)",
         "Galway Girl",

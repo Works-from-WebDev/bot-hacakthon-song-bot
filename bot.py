@@ -1,27 +1,18 @@
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-import requests as req
 import time
 from keys import KEY
 from lyrics import random_song
+
 bot = telebot.TeleBot(KEY)
 stringList = {'start': ['Play', 'Settings', 'Help'],
               'settings': ['Language', 'Theme', 'Back'],
-              'language': ['English', 'Hebrew', 'Back'],
+              'language': ['English', 'Hebrew', 'Both', 'Back'],
               'theme': ['Dark', 'Light', 'Back'],
               'help': ['How to play', 'About', 'Back']}
 
 state = True
-
-
-def handle_message(message):
-    global state
-
-    if message.text.lower() == song_name.lower():
-        bot.send_message(message.chat.id,
-                         f'Winner: {message.from_user.id}')
-        state = False
-        bot.send_message(message.chat.id, 'Game Over')
+song_name = ""
 
 
 @bot.message_handler(commands=['start'])
@@ -31,7 +22,7 @@ def send_welcome(message):
                InlineKeyboardButton(
                    stringList['start'][1], callback_data='settings'),
                InlineKeyboardButton(
-                   stringList['start'][2], callback_data='help'),
+                   stringList['start'][2], callback_data='help')
                )
     bot.send_message(message.chat.id, 'Welcome to the game!',
                      reply_markup=markup)
@@ -39,28 +30,40 @@ def send_welcome(message):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'play')
 def play_game(call):
+    global state
+    global song_name
+
     bot.answer_callback_query(call.id)
     bot.send_message(call.message.chat.id, 'Welcome to the game!')
     data = random_song()
     song = data[2]
     actor = data[1]
-    global song_name, state
     song_name = data[0]
     counter = 4
 
+    state = True
     bot.send_message(call.message.chat.id, " ".join(song[0:counter]))
     counter += 4
+
     while state:
-        try:
-            bot.register_next_step_handler(call.message, handle_message)
-            time.sleep(10)
-            bot.send_message(call.message.chat.id, " ".join(song[0:counter]))
-            counter += 4
-        except:
-            bot.send_message(call.message.chat.id, 'Game Over')
+        if not state:
             break
+        bot.register_next_step_handler(call.message, handle_message)
+
+        time.sleep(10)
+        bot.send_message(call.message.chat.id, " ".join(song[0:counter]))
+        counter += 4
+
     bot.send_message(call.message.chat.id, 'The song was: ' +
                      song_name + ' by ' + actor + '.')
+
+
+def handle_message(message):
+    global state
+    if message.text.lower() == song_name.lower():
+        bot.send_message(message.chat.id,
+                         f'Winner: {message.from_user.id}')
+        state = False
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'settings')
@@ -80,7 +83,8 @@ def language(call):
     markup.add(InlineKeyboardButton(stringList['language'][0], callback_data='english'),
                InlineKeyboardButton(
         stringList['language'][1], callback_data='hebrew'),
-        InlineKeyboardButton(stringList['language'][2], callback_data='back'))
+        InlineKeyboardButton(stringList['language'][2], callback_data='both'),
+        InlineKeyboardButton(stringList['language'][3], callback_data='back'))
     bot.send_message(call.message.chat.id, 'Language', reply_markup=markup)
 
 

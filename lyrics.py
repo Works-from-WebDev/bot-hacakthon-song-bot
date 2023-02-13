@@ -1,5 +1,5 @@
 import lyricsgenius
-import bot_settings
+from keys import API_KEY
 from all_songs import singers
 import random
 import re
@@ -18,14 +18,8 @@ def random_song():
 
 
 def lyrics(artist, song):
-    genius = lyricsgenius.Genius(bot_settings.API_KEY)
+    genius = lyricsgenius.Genius(API_KEY)
     genius.verbose = False
     genius.remove_section_headers = True
     song = genius.search_song(song, artist)
     return song.lyrics
-
-
-
-# print(lyrics("שיר בבוקר בבוקר", "שלמה ארצי"))
-
-print(random_song())
