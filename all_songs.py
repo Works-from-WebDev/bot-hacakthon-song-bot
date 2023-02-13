@@ -1,4 +1,4 @@
-singers = {
+singersEN = {
     "Adele": [
         "Hello",
         "Someone Like You",
@@ -17,20 +17,15 @@ singers = {
         "Perfect",
         "Castle on the Hill",
         "Photograph",
-        "I Don't Care (with Justin Bieber)",
-        "Beautiful People (with Khalid)",
-        "South of the Border (feat. Camila Cabello & Cardi B)",
         "Galway Girl",
         "The A Team"
     ],
     "Beyonce": [
         "Crazy in Love",
-        "Single Ladies (Put a Ring on It)",
         "Halo",
         "Love on Top",
         "Sweet Dreams",
         "Countdown",
-        "Partition",
         "Drunk in Love",
         " Formation",
         "Run the World (Girls)"
@@ -80,7 +75,6 @@ singers = {
         "Love on the Brain",
         "Kiss It Better",
         "Needed Me",
-        "Only Girl (In the World)",
         "Disturbia"
     ],
     "Taylor Swift": [
@@ -100,31 +94,85 @@ singers = {
         "Ocean Eyes",
         "When the Party's Over",
         "Bury a Friend",
-"Ilomilo",
-    "Wish You Were Gay",
-    "No Time to Die",
-    "Everything I Wanted",
-    "My Future",
-    "Therefore I Am"
-],
-"Shawn Mendes": [
-    "Stitches",
-    "There's Nothing Holdin' Me Back",
-    "In My Blood",
-    "If I Can't Have You",
-    "Treat You Better",
-    "Lost in Japan",
-    "Señorita",
-    "Mercy",
-    "Fallin' All in You",
-    "Nervous"
-]
+        "Ilomilo",
+        "Wish You Were Gay",
+        "No Time to Die",
+        "Everything I Wanted",
+        "My Future",
+        "Therefore I Am"
+    ],
+    "Shawn Mendes": [
+        "Stitches",
+        "There's Nothing Holdin' Me Back",
+        "In My Blood",
+        "If I Can't Have You",
+        "Treat You Better",
+        "Lost in Japan",
+        "Señorita",
+        "Mercy",
+        "Fallin' All in You",
+        "Nervous"
+    ]}
+singersHE = {
+    "אייל גולן": [
+        "דמעות",
+        "צליל מיתר",
+        "בלעדייך",
+        "ים של טעויות",
+        "בין הטוב והרע",
+        "לוחמת",
+        "אלוהיי",
+        "חיים שלמים",
+        "מצטער",
+        "אהבת ילדות"
+    ],
+    "שלמה ארצי": [
+        "ירח",
+        "בשבילה אתה מלך העולם",
+        "לא עוזב את העיר",
+        "ארץ חדשה",
+        "אלוהיי",
+        "תתארו לכם",
+        "האהבה הישנה",
+        "אף פעם לא תדעי",
+        "נוף ילדות",
+        "תחת שמי ים תיכון"
+    ],
+
+    "נועה קירל": [
+        "פנתרה",
+        "יש בי אהבה",
+        "חצי משוגע",
+        "יהלומים",
+        "קילר",
+        "טיקי טס",
+        "טרילילי טרללה",
+        "אם אתה גבר",
+        "אמבולנס",
+        "חצוף"
+    ],
+
+    "טונה": [
+        "סחרחורת",
+        "סהרה",
+        "בסיבוב",
+        "היי בייב",
+        "מרפקים",
+        "עולם משוגע",
+        "גם זה יעבור",
+        "שניצלים",
+    ],
+    "סטטיק ובן אל": [
+        "טודו בום",
+        "זהב",
+        "בננות",
+        "סלסולים",
+        "יאסו",
+        "גומיגם",
+        "כביש החוף",
+        "אפס מאמץ",
+        "ברבי",
+        "קוביות"
+    ]
 }
-
-
-
-
-
-
-
-
+all_singers = [singersEN, singersHE]
