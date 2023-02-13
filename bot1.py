@@ -26,26 +26,41 @@ def start(update: Update, context: CallbackContext):
     if context.user_data.get("song"):
         return
     song = random_song("BOTH")
-    context.user_data["song"]=song
+    context.user_data["song"] = song
+    context.user_data["running"] = [True]
     logger.info(f"> Start chat #{chat_id},song ={song[0]}")
-    context.bot.send_message(chat_id=chat_id, text="guess the song")
+    context.bot.send_message(
+        chat_id=chat_id, text=f"Hi welcome to the Guessing The Song game!!!"
+    )
 
-    j.run_once(callback_minute, 2, context={
-        'chat_id': update.message.chat_id,
-        'counter': 0,
-        "song": song
-    })
+    j.run_once(
+        callback_minute,
+        2,
+        context={
+            "chat_id": update.message.chat_id,
+            "counter": 0,
+            "song": song,
+            "running": context.user_data["running"],
+        },
+    )
 
 
 def callback_minute(context: telegram.ext.CallbackContext):
     d = context.job.context
+    if not d["running"][0]:
+        return
     song = d["song"]
-    context.bot.send_message(chat_id=d['chat_id'], text=song[2][d['counter']])
-    j.run_once(callback_minute, 2, context={
-        'chat_id': d['chat_id'],
-        'counter': d['counter'] + 1,
-        "song": song
-    })
+    context.bot.send_message(chat_id=d["chat_id"], text=song[2][d["counter"]])
+    j.run_once(
+        callback_minute,
+        2,
+        context={
+            "chat_id": d["chat_id"],
+            "counter": d["counter"] + 1,
+            "song": song,
+            "running": d["running"],
+        },
+    )
 
 
 def guess(update: Update, context: CallbackContext):
@@ -55,10 +70,11 @@ def guess(update: Update, context: CallbackContext):
     if not song:
         return
     success = text.lower() == song[0].lower()
-    msg = "success" if success else f"{text} is not the songs name"
+    msg = "You got it!!!" if success else f"{text} is not the song's name"
     context.bot.send_message(chat_id=update.message.chat_id, text=msg)
     logger.info(f"= Got on chat #{chat_id}: {text!r} {success=}")
-
+    if success:
+        context.user_data["running"][0] = False
 
 
 my_bot = Updater(token=bot_settings.BOT_TOKEN, use_context=True)
