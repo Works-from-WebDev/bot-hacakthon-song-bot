@@ -25,12 +25,10 @@ singers = {
     ],
     "Beyonce": [
         "Crazy in Love",
-        "Single Ladies (Put a Ring on It)",
         "Halo",
         "Love on Top",
         "Sweet Dreams",
         "Countdown",
-        "Partition",
         "Drunk in Love",
         " Formation",
         "Run the World (Girls)"

@@ -11,14 +11,17 @@ stringList = {'start': ['Play', 'Settings', 'Help'],
               'theme': ['Dark', 'Light', 'Back'],
               'help': ['How to play', 'About', 'Back']}
 
+state = True
 
-def handle_message(call):
-    # Check if the message contains the correct song name
-    if call.message.text.lower() == song_name.lower():
-        bot.send_message(call.message.chat.id,
-                         f'Winner: {call.message.from_user.id}')
-        return True
-    return False
+
+def handle_message(message):
+    global state
+
+    if message.text.lower() == song_name.lower():
+        bot.send_message(message.chat.id,
+                         f'Winner: {message.from_user.id}')
+        state = False
+        bot.send_message(message.chat.id, 'Game Over')
 
 
 @bot.message_handler(commands=['start'])
@@ -41,12 +44,23 @@ def play_game(call):
     data = random_song()
     song = data[2]
     actor = data[1]
-    global song_name
+    global song_name, state
     song_name = data[0]
-    counter = 0
+    counter = 4
 
-    # Send the first word
-    bot.send_message(call.message.chat.id, song[counter])
+    bot.send_message(call.message.chat.id, " ".join(song[0:counter]))
+    counter += 4
+    while state:
+        try:
+            bot.register_next_step_handler(call.message, handle_message)
+            time.sleep(10)
+            bot.send_message(call.message.chat.id, " ".join(song[0:counter]))
+            counter += 4
+        except:
+            bot.send_message(call.message.chat.id, 'Game Over')
+            break
+    bot.send_message(call.message.chat.id, 'The song was: ' +
+                     song_name + ' by ' + actor + '.')
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'settings')
