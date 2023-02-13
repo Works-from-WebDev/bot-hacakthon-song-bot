@@ -10,6 +10,8 @@ stringList = {'start': ['Play', 'Settings', 'Help'],
               'help': ['How to play', 'About', 'Back']
               }
 
+x§
+
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
