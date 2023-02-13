@@ -48,12 +48,17 @@ def callback_minute(context: telegram.ext.CallbackContext):
     })
 
 
-def respond(update: Update, context: CallbackContext):
+def guess(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     text = update.message.text
-    logger.info(f"= Got on chat #{chat_id}: {text!r}")
-    response = text.replace("7", "💣")
-    context.bot.send_message(chat_id=update.message.chat_id, text=response)
+    song = context.user_data.get("song")
+    if not song:
+        return
+    success = text.lower() == song[0].lower()
+    msg = "success" if success else f"{text} is not the songs name"
+    context.bot.send_message(chat_id=update.message.chat_id, text=msg)
+    logger.info(f"= Got on chat #{chat_id}: {text!r} {success=}")
+
 
 
 my_bot = Updater(token=bot_settings.BOT_TOKEN, use_context=True)
@@ -63,7 +68,7 @@ j = my_bot.job_queue
 
 
 my_bot.dispatcher.add_handler(CommandHandler("start", start))
-my_bot.dispatcher.add_handler(MessageHandler(Filters.text, respond))
+my_bot.dispatcher.add_handler(MessageHandler(Filters.text, guess))
 
 logger.info("* Start polling...")
 my_bot.start_polling()  # Starts polling in a background thread.
