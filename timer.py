@@ -38,7 +38,7 @@ def start(update: Update, context: CallbackContext):
 
 def callback_minute(context: telegram.ext.CallbackContext):
     d = context.job.context
-    if d['counter'] < len(x[2]):
+    if d['counter'] > len(x[2]):
         context.bot.send_message(chat_id=d['chat_id'], text="You're lost")
     else:
         context.bot.send_message(chat_id=d['chat_id'], text=x[2][d['counter']])
