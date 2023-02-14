@@ -1,9 +1,9 @@
-# 🚧 YOUR BOT NAME HERE
+# GameSong
 
 ## The Team
-- 🚧 Participant 1 Name
-- 🚧 Participant 2 Name
-- 🚧 Participant 3 Name
+- Ran Elbaz
+- Jonik Shafir
+- Idan Teperovich
 
 ## About this bot
 
