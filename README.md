@@ -7,7 +7,8 @@
 
 ## About this bot
 
-This is a Telegram bot implemented in Python programming language. The bot has various functions, including playing a guessing game, changing settings, and displaying help information. The bot is interactive and uses inline keyboards to present options to the user. When the user chooses to play the game,
+This is a Telegram bot implemented in Python programming language. The bot has various functions, including playing a guessing game, changing settings, and displaying help information. The bot is interactive and uses inline keyboards to present options to the user. When the user chooses to play the game
+
 ![after press start](https://user-images.githubusercontent.com/117281221/218689638-22d80a74-8a8e-400a-8810-812cbc2f4362.png)
 
 the bot selects a random song and sends lyrics to the user one by one. The user has to guess the name of the song. If the user guesses correctly, the bot sends a success message; otherwise, the game ends after a set number of attempts, and the bot sends a failure message. The bot also allows the user to change the language and theme of the game.
