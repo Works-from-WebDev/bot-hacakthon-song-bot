@@ -1,4 +1,4 @@
-# GameSong
+# GameSongBot
 
 ## The Team
 - Ran Elbaz
