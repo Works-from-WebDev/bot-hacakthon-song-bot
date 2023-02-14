@@ -11,7 +11,14 @@ This is a Telegram bot implemented in Python programming language. The bot has v
 
 ![after press start](https://user-images.githubusercontent.com/117281221/218689638-22d80a74-8a8e-400a-8810-812cbc2f4362.png)
 
-the bot selects a random song and sends lyrics to the user one by one. The user has to guess the name of the song. If the user guesses correctly, the bot sends a success message; otherwise, the game ends after a set number of attempts, and the bot sends a failure message. The bot also allows the user to change the language and theme of the game.
+the bot selects a random song and sends lyrics to the user one by one. The user has to guess the name of the song. If the user guesses correctly, the bot sends a success message; otherwise, the game ends after a set number of attempts, and the bot sends a failure message.
+
+
+![צילום מסך 2023-02-14 110402](https://user-images.githubusercontent.com/117281221/218690078-271b0f15-522f-42e5-adc9-00935af7fa9f.png)
+
+
+
+The bot also allows the user to change the language and theme of the game.
 
 LINK TO THE BOT: https://t.me/GameSongsBot
 
