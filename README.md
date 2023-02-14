@@ -17,21 +17,19 @@ the bot selects a random song and sends lyrics to the user one by one. The user 
 ![after seccess](https://user-images.githubusercontent.com/117281221/218690624-1f46edc6-7811-4645-ab77-5f3486283f6b.png)
 
 
+The bot also allows the user to change the language of the song in the game.
 
+![language](https://user-images.githubusercontent.com/117281221/218692142-791387ec-3fd2-4087-8a16-0841c67c3e33.png)
 
-The bot also allows the user to change the language and theme of the game.
 
 LINK TO THE BOT: https://t.me/GameSongsBot
 
-🚧 ADD SCREENSHOTS/GIFS/SCREENCAST HERE (REFER TO MARKDOWN'S SYNTAX FOR HELP ON DISPLAYING IMAGES)
-
-🚧 ADD ANY OTHER NOTES REGARDING THE BOT
  
 ## Instructions for Developers 
 ### Prerequisites
 - Python 3.10
 - Poetry
-- 🚧 ADD ANY OTHER PREREQUISITE HERE (MONGODB?)
+- MongoDB
 
 ### Setup
 - git clone this repository 
