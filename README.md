@@ -13,8 +13,9 @@ This is a Telegram bot implemented in Python programming language. The bot has v
 
 the bot selects a random song and sends lyrics to the user one by one. The user has to guess the name of the song. If the user guesses correctly, the bot sends a success message; otherwise, the game ends after a set number of attempts, and the bot sends a failure message.
 
+![after worng name](https://user-images.githubusercontent.com/117281221/218690463-09453402-1df7-427a-bf40-95adec093894.png)
+![after seccess](https://user-images.githubusercontent.com/117281221/218690624-1f46edc6-7811-4645-ab77-5f3486283f6b.png)
 
-![צילום מסך 2023-02-14 110402](https://user-images.githubusercontent.com/117281221/218690078-271b0f15-522f-42e5-adc9-00935af7fa9f.png)
 
 
 
