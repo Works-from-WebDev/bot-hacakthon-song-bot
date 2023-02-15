@@ -7,7 +7,6 @@ singersEN = {
         "Skyfall",
         "When We Were Young",
         "Make You Feel My Love",
-        "Send My Love (To Your New Lover)",
         "Water Under the Bridge",
         "Chasing Pavements"
     ],
@@ -28,7 +27,6 @@ singersEN = {
         "Countdown",
         "Drunk in Love",
         " Formation",
-        "Run the World (Girls)"
     ],
     "Drake": [
         "God's Plan",
@@ -59,7 +57,6 @@ singersEN = {
         "Sorry",
         "Baby",
         "What Do You Mean?",
-        "I Don't Care (with Ed Sheeran)",
         "Yummy",
         "Beauty and a Beat",
         "Purpose",

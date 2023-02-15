@@ -26,13 +26,10 @@ def random_song(song_type):
 
 
 def lyrics(artist, song):
-    genius = lyricsgenius.Genius(bot_settings.API_KEY)
+    genius = lyricsgenius.Genius(bot_settings.Lkey)
     genius.verbose = False
     genius.remove_section_headers = True
     song = genius.search_song(song, artist)
     return song.lyrics
 
 
-
-# print(lyrics("שיר בבוקר בבוקר", "שלמה ארצי"))
-# print(random_song('BOTH'))
